@@ -21,6 +21,11 @@ public class Solution
 {
     public bool IsAnagram(string s, string t)
     {
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+
         Dictionary<char, int> sLog = new Dictionary<char, int>();
         Dictionary<char, int> tLog = new Dictionary<char, int>();
         for (int i = 0; i < s.Length; i++)
