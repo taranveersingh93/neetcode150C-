@@ -13,20 +13,20 @@
 
 // Output: false
 
-class Solution
+public class Solution
 {
-    public boolean hasDuplicate(int[] nums)
+    public bool hasDuplicate(int[] nums)
     {
-        HashMap<Integer, Integer> numStore = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++)
+        Dictionary<int, int> numStore = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++)
         {
-            if (numStore.containsKey(nums[i]))
+            if (numStore.ContainsKey(nums[i]))
             {
                 return true;
             }
             else
             {
-                numStore.put(nums[i], 1);
+                numStore[nums[i]] = 1;
             }
         }
         return false;
