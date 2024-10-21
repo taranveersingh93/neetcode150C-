@@ -23,3 +23,25 @@
 // 1 <= strs.length <= 1000.
 // 0 <= strs[i].length <= 100
 // strs[i] is made up of lowercase English letters.
+
+
+public class Solution
+{
+    public List<List<string>> GroupAnagrams(string[] strs)
+    {
+        Dictionary<string, List<string>> stringLog = new Dictionary<string, List<string>>();
+        for (int i = 0; i < strs.Length; i++)
+        {
+            string word = strs[i];
+            char[] chars = word.ToCharArray();
+            Array.Sort(chars);
+            string sortedChars = new string(chars);
+            if (!stringLog.ContainsKey(sortedChars))
+            {
+                stringLog[sortedChars] = new List<string>();
+            }
+            stringLog[sortedChars].Add(word);
+        }
+        return stringLog.Values.ToList<List<string>>();
+    }
+}
