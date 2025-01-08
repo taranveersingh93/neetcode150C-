@@ -50,7 +50,7 @@ public class Solution
 
         List<int> outputList = new List<int>();
 
-        for (int i = bucketList.Count - 1; i >= 0 && outputList.Count < k; i--)
+        for (int i = bucketList.Count - 1; i > 0 && outputList.Count < k; i--)
         {
             if (bucketList[i] != null && bucketList[i].Count > 0)
             {
