@@ -29,22 +29,18 @@
 // -10,000,000 <= nums[i] <= 10,000,000
 // -10,000,000 <= target <= 10,000,000
 
-public class Solution
-{
-    public int[] TwoSum(int[] nums, int target)
-    {
-        int[] result = new int[2];
-        for (int i = 0; i < nums.Length; i++)
-        {
-            for (int j = i + 1; j < nums.Length; j++)
-            {
-                if (nums[i] + nums[j] == target)
-                {
-                    result[0] = i;
-                    result[1] = j;
-                }
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+       Dictionary <int, int[]> targetDiff = new Dictionary<int, int[]>();
+       for (int i = 0; i < nums.Length; i++) {
+            int diff = target - nums[i];
+            if (targetDiff.ContainsKey(diff) && targetDiff[diff][0] == nums[i]) {
+                return new int[]{targetDiff[diff][1], i};
+            } else {
+                targetDiff[nums[i]] = new int[]{diff, i};
             }
-        }
-        return result;
+       }
+       return new int[]{};
     }
 }
+
